@@ -1,0 +1,18 @@
+.header {
+  background: rgb(201, 212, 242);
+  background: linear-gradient(
+    86deg,
+    rgba(201, 212, 242, 1) 19%,
+    rgba(228, 247, 255, 1) 71%
+  );
+  display: grid;
+  place-items: center;
+}
+
+.appName {
+  color: var(--text-color-primary);
+  font-family: 'Encode Sans Semi Expanded', sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
