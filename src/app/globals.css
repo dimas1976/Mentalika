@@ -32,13 +32,18 @@
   --bg-primary: #dbf4ff;
   --color-accent: #f68d30;
   --text-color-primary: #145376;
+  --text-size-primary: 16;
   --main-heading-font-family: 'Encode Sans Semi Expanded', sans-serif;
   --card-heading-font-family: 'Encode Sans Condensed', sans-serif;
   --main-text-font-family: 'Roboto', sans-serif;
 }
 
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
