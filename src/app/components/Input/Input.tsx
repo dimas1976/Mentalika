@@ -3,15 +3,15 @@ import styles from './Input.module.css';
 
 type InputProps = {
   placeholder?: string;
-  userDataValue: string;
-  setUserDataValue: (userDataValue: string) => void;
+  value: string;
+  onValueChange: (userDataValue: string) => void;
   isDisabled: boolean;
 };
 
 export default function Input({
   placeholder,
-  userDataValue,
-  setUserDataValue,
+  value: userDataValue,
+  onValueChange: setUserDataValue,
   isDisabled,
 }: InputProps): JSX.Element {
   return (

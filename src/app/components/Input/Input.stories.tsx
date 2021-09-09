@@ -9,16 +9,16 @@ export default {
 export const FormInputEnabled = (): JSX.Element => (
   <Input
     placeholder="enter..."
-    userDataValue="Bolock"
-    setUserDataValue={(data) => console.log('huhu', data)}
+    value="Bolock"
+    onValueChange={(data) => console.log('huhu', data)}
     isDisabled={false}
   />
 );
 
 export const FormInputDisabled = (): JSX.Element => (
   <Input
-    userDataValue="Mi.22.10"
-    setUserDataValue={(data) => console.log('huhu', data)}
+    value="Mi.22.10"
+    onValueChange={(data) => console.log('huhu', data)}
     isDisabled={true}
   />
 );
