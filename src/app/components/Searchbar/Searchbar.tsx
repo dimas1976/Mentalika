@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './Searchbar.module.css';
 import SearchIcon from '../assets/SearchIcon';
-//import { mdiMagnify } from '@mdi/js';
-// import Icon from '@mdi/react';
 
 type SearchbarProps = {
   placeholder?: string;
