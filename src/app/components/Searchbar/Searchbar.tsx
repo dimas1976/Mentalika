@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Searchbar.module.css';
-import { mdiMagnify } from '@mdi/js';
-import Icon from '@mdi/react';
+import SearchIcon from '../assets/SearchIcon';
+//import { mdiMagnify } from '@mdi/js';
+// import Icon from '@mdi/react';
 
 type SearchbarProps = {
   placeholder?: string;
@@ -23,11 +24,10 @@ export default function Searchbar({
         value={value}
         onChange={(event) => onValueChange(event.target.value)}
       />
-      <Icon
+      <SearchIcon
         className={styles.searchIcon}
-        path={mdiMagnify}
-        size={'0.7rem'}
-        color={'#F27507'}
+        width="0.7rem"
+        height="0.75rem"
       />
     </form>
   );
