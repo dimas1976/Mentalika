@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  box-shadow: 1px 0 6px 1px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+}
+
+.inputField {
+  border: none;
+  width: 80%;
+}
+
+.inputField::placeholder {
+  padding-left: 0.5rem;
+  color: var(--color-accent);
+}
+
+.inputField:focus {
+  outline: none;
+}
+
+.searchIcon {
+  align-self: center;
+}
