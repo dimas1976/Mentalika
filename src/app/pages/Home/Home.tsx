@@ -11,7 +11,11 @@ export default function Home(): JSX.Element {
         <Header />
       </header>
       <div className={styles.page__searchbar}>
-        <Searchbar value="" onValueChange={(value) => console.log(value)} />
+        <Searchbar
+          value=""
+          placeholder={'Suche nach Name oder Stadt'}
+          onValueChange={(value) => console.log(value)}
+        />
       </div>
       <section className={styles.page__section}></section>
       <nav className={styles.page__navigation}>
