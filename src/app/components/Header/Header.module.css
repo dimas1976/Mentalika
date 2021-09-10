@@ -1,10 +1,5 @@
 .header {
-  background: rgb(201, 212, 242);
-  background: linear-gradient(
-    86deg,
-    rgba(201, 212, 242, 1) 19%,
-    rgba(228, 247, 255, 1) 71%
-  );
+  background-color: transparent;
   display: grid;
   place-items: center;
 }
