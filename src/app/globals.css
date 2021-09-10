@@ -38,6 +38,7 @@
   --card-heading-font-family: 'Encode Sans Condensed', sans-serif;
   --card-bg: rgba(255, 255, 255, 85%);
   --border-radius: 10px;
+  --card-space: 0.8rem;
 }
 
 * {
@@ -56,4 +57,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#app {
+  height: 100vh;
 }
