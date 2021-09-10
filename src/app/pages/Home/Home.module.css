@@ -1,0 +1,25 @@
+.page {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  height: 100%;
+  background: rgb(201, 212, 242);
+  background: linear-gradient(
+    150deg,
+    rgba(201, 212, 242, 1) 3%,
+    rgba(228, 247, 255, 1) 30%
+  );
+}
+
+.page__header {
+  margin-top: 1.1rem;
+}
+
+.page__searchbar {
+  margin: 0 var(--card-space);
+}
+.page__navigation {
+  position: fixed;
+  bottom: var(--card-space);
+  left: var(--card-space);
+  right: var(--card-space);
+}
