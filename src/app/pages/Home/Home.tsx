@@ -15,7 +15,7 @@ export default function Home(): JSX.Element {
       </div>
       <section className={styles.page__section}></section>
       <nav className={styles.page__navigation}>
-        <Navigation activeLink="home" className={styles.navigation} />
+        <Navigation activeLink="home" />
       </nav>
     </div>
   );
