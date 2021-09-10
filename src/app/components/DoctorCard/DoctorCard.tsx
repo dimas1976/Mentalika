@@ -1,21 +1,34 @@
 import React from 'react';
 import styles from './DoctorCard.module.css';
 
-export default function DoctorCard(): JSX.Element {
+type DoctorCardProps = {
+  imgPath: string;
+  heading: string;
+  adress: string;
+  plz: string;
+  city: string;
+};
+
+export default function DoctorCard({
+  imgPath,
+  heading,
+  adress,
+  plz,
+  city,
+}: DoctorCardProps): JSX.Element {
   return (
-    <article>
+    <article className={styles.doctorCard}>
       <div className={styles.imageCropper}>
-        <img
-          src="./src/app/components/assets/images/sabine.jpg"
-          alt="profile"
-        />
+        <img src={imgPath} alt="profile" />
       </div>
-      <div>
-        <h2>Dipl.-Psych. Sabine Wery von Limont</h2>
-        <p>
-          Max-Brauer-Alee 52,
+      <div className={styles.content}>
+        <h2 className={styles.heading}>{heading}</h2>
+        <p className={styles.adress}>
+          <span>{adress}</span>
           <br />
-          22765 Hamburg
+          <span>
+            {plz} {city}
+          </span>
         </p>
       </div>
     </article>
