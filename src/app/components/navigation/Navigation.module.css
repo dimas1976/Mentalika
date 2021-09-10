@@ -1,0 +1,13 @@
+.navigation {
+  background-color: var(--card-bg);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: var(--border-radius);
+  margin: 0 0.8rem;
+}
+
+.navigationItem {
+  vertical-align: middle;
+  padding: 0.75rem 0;
+}

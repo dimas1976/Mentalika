@@ -34,8 +34,10 @@
   --text-color-primary: #145376;
   --text-size-primary: 16;
   --main-heading-font-family: 'Encode Sans Semi Expanded', sans-serif;
-  --card-heading-font-family: 'Encode Sans Condensed', sans-serif;
   --main-text-font-family: 'Roboto', sans-serif;
+  --card-heading-font-family: 'Encode Sans Condensed', sans-serif;
+  --card-bg: rgba(255, 255, 255, 85%);
+  --border-radius: 10px;
 }
 
 * {
