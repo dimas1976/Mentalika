@@ -5,7 +5,7 @@ export default {
   title: 'Component/DoctorCard',
   component: DoctorCard,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
     backgrounds: {
       default: 'mentalika',
       values: [{ name: 'mentalika', value: '#DBF4FF' }],
