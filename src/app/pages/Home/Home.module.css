@@ -17,6 +17,15 @@
 .page__searchbar {
   margin: 0 var(--card-space);
 }
+
+.page__section {
+  margin-top: 20%;
+}
+
+.card {
+  margin-bottom: 5rem;
+}
+
 .page__navigation {
   position: fixed;
   bottom: var(--card-space);
