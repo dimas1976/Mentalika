@@ -1,5 +1,6 @@
 import React from 'react';
 import DoctorCard from './DoctorCard';
+import imageFile from '../assets/images/sabine.jpg';
 
 export default {
   title: 'Component/DoctorCard',
@@ -13,9 +14,13 @@ export default {
   },
 };
 
+const image = {
+  src: imageFile,
+};
+
 export const Card = (): JSX.Element => (
   <DoctorCard
-    imgPath="./src/app/components/assets/images/sabine.jpg"
+    imgPath={image.src}
     heading="Dipl.-Psych. Sabine Wery von Limont"
     adress="Max-Brauer-Alee 52,"
     plz="22765"
