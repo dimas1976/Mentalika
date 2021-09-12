@@ -16,9 +16,12 @@ export default {
 export const Card = (): JSX.Element => (
   <DoctorCard
     imgPath="./src/app/components/assets/images/sabine.jpg"
-    heading="Dipl.-Psych. Sabine Wery von Limont"
-    adress="Max-Brauer-Alee 52,"
-    plz="22765"
+    title="Dipl.-Psych."
+    name="Sabine"
+    surename="Wery von Limont"
+    adress="Max-Brauer-Alee 52"
+    plz={22765}
     city="Hamburg"
+    className=""
   />
 );
