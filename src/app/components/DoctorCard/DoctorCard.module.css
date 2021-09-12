@@ -5,15 +5,18 @@
   border-radius: var(--border-radius);
 }
 .imageCropper {
+  display: flex;
+  justify-content: center;
   width: 6rem;
   height: 6rem;
   overflow: hidden;
   border-radius: 50%;
-  margin-top: -10%;
+  margin-top: -13%;
 }
 
 .imageCropper img {
-  width: 100%;
+  width: auto;
+  height: 100%;
 }
 
 .content {
