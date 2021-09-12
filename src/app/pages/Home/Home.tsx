@@ -4,14 +4,23 @@ import Searchbar from '../../components/Searchbar/Searchbar';
 import Navigation from '../../components/navigation/Navigation';
 import styles from './Home.module.css';
 import type { Doctor } from '../../lib/types';
-
+import DoctorCard from '../../components/DoctorCard/DoctorCard';
 export default function Home(): JSX.Element {
   const [searchValue, setSearchValue] = useState('');
-  let doctors: Doctor[] = [];
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+
   function getdoctors() {
     const item = localStorage.getItem('doctors');
-    doctors = item ? JSON.parse(item) : [];
-    console.log(doctors);
+    let result: Doctor[] = [];
+    result = item ? JSON.parse(item) : [];
+    if (result.length == 0) {
+      throw new Error('no results');
+    }
+    const filteredResult = result.filter(
+      (element) =>
+        searchValue === element.surename || searchValue === element.city
+    );
+    setDoctors(filteredResult);
   }
 
   return (
@@ -30,7 +39,23 @@ export default function Home(): JSX.Element {
           }}
         />
       </div>
-      <section className={styles.page__section}></section>
+      <section className={styles.page__section}>
+        {doctors.map((doctor) => {
+          return (
+            <DoctorCard
+              className={styles.card}
+              key={doctor.id}
+              imgPath={doctor.image}
+              title={doctor.title}
+              name={doctor.name}
+              surename={doctor.surename}
+              adress={doctor.adress}
+              plz={doctor.plz}
+              city={doctor.city}
+            />
+          );
+        })}
+      </section>
       <nav className={styles.page__navigation}>
         <Navigation activeLink="home" />
       </nav>
