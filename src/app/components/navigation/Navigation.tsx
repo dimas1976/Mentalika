@@ -5,13 +5,15 @@ import styles from './Navigation.module.css';
 
 type NavigationProps = {
   activeLink: 'home' | 'bookmark' | 'notification';
+  className: string;
 };
 
 export default function Navigation({
   activeLink,
+  className,
 }: NavigationProps): JSX.Element {
   return (
-    <nav className={styles.navigation}>
+    <nav className={`${className} ${styles.navigation}`}>
       <Link to="/dashboard">
         <NavigationIconLink
           className={styles.navigationItem}
