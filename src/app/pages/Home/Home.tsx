@@ -7,20 +7,15 @@ import styles from './Home.module.css';
 export default function Home(): JSX.Element {
   return (
     <div className={styles.page}>
-      <header className={styles.page__header}>
-        <Header />
-      </header>
-      <div className={styles.page__searchbar}>
-        <Searchbar
-          value=""
-          placeholder={'Suche nach Name oder Stadt'}
-          onValueChange={(value) => console.log(value)}
-        />
-      </div>
+      <Header className={styles.page__header} />
+      <Searchbar
+        className={styles.page__searchbar}
+        value=""
+        placeholder={'Suche nach Name oder Stadt'}
+        onValueChange={(value) => console.log(value)}
+      />
       <section className={styles.page__section}></section>
-      <nav className={styles.page__navigation}>
-        <Navigation activeLink="home" />
-      </nav>
+      <Navigation className={styles.page__navigation} activeLink="home" />
     </div>
   );
 }

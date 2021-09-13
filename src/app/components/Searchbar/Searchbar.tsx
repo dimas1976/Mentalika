@@ -6,15 +6,17 @@ type SearchbarProps = {
   placeholder?: string;
   value: string;
   onValueChange: (value: string) => void;
+  className?: string;
 };
 
 export default function Searchbar({
   placeholder,
   value,
   onValueChange,
+  className,
 }: SearchbarProps): JSX.Element {
   return (
-    <form className={styles.form}>
+    <form className={`${className} ${styles.form}`}>
       <input
         className={styles.inputField}
         type="search"
