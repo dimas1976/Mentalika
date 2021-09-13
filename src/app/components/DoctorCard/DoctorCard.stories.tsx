@@ -1,11 +1,12 @@
 import React from 'react';
 import DoctorCard from './DoctorCard';
+import imageFile from '../assets/images/sabine.jpg';
 
 export default {
   title: 'Component/DoctorCard',
   component: DoctorCard,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
     backgrounds: {
       default: 'mentalika',
       values: [{ name: 'mentalika', value: '#DBF4FF' }],
@@ -15,11 +16,11 @@ export default {
 
 export const Card = (): JSX.Element => (
   <DoctorCard
-    imgPath="./src/app/components/assets/images/sabine.jpg"
+    imgPath={imageFile}
     title="Dipl.-Psych."
     name="Sabine"
-    surename="Wery von Limont"
-    adress="Max-Brauer-Alee 52"
+    surename="Sabine Wery von Limont"
+    adress="Max-Brauer-Alee 52,"
     plz={22765}
     city="Hamburg"
     className=""

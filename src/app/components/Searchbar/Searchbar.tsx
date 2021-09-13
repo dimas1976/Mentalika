@@ -7,16 +7,17 @@ type SearchbarProps = {
   value: string;
   handleSubmit: (event: React.FormEvent) => void;
   onValueChange: (value: string) => void;
+  className?: string;
 };
 
 export default function Searchbar({
   placeholder,
   value,
   onValueChange,
-  handleSubmit,
+  className,
 }: SearchbarProps): JSX.Element {
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={`${className} ${styles.form}`}>
       <input
         className={styles.inputField}
         type="search"
