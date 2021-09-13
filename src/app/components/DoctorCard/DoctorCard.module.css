@@ -7,6 +7,8 @@
   box-shadow: 0 7px 12px -2px rgba(20, 83, 118, 0.39);
 }
 .imageCropper {
+  display: flex;
+  justify-content: center;
   position: absolute;
   top: -3.5rem;
   width: 6rem;
