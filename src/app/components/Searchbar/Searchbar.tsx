@@ -15,9 +15,10 @@ export default function Searchbar({
   value,
   onValueChange,
   className,
+  handleSubmit,
 }: SearchbarProps): JSX.Element {
   return (
-    <form className={`${className} ${styles.form}`}>
+    <form className={`${className} ${styles.form}`} onSubmit={handleSubmit}>
       <input
         className={styles.inputField}
         type="search"
