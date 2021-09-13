@@ -14,13 +14,9 @@ export default {
   },
 };
 
-const image = {
-  src: imageFile,
-};
-
 export const Card = (): JSX.Element => (
   <DoctorCard
-    imgPath={image.src}
+    imgPath={imageFile}
     heading="Dipl.-Psych. Sabine Wery von Limont"
     adress="Max-Brauer-Alee 52,"
     plz="22765"
