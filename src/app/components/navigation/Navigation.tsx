@@ -5,7 +5,7 @@ import styles from './Navigation.module.css';
 
 type NavigationProps = {
   activeLink: 'home' | 'bookmark' | 'notification';
-  className: string;
+  className?: string;
 };
 
 export default function Navigation({

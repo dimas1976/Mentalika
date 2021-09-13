@@ -6,7 +6,7 @@ type SearchbarProps = {
   placeholder?: string;
   value: string;
   onValueChange: (value: string) => void;
-  className: string;
+  className?: string;
 };
 
 export default function Searchbar({
