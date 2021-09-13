@@ -5,41 +5,41 @@ import Navigation from '../../components/navigation/Navigation';
 import styles from './Home.module.css';
 import type { Doctor } from '../../lib/types';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
+
 export default function Home(): JSX.Element {
   const [searchValue, setSearchValue] = useState('');
   const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   function getdoctors() {
+    setErrorMessage('');
     const item = localStorage.getItem('doctors');
-    let result: Doctor[] = [];
-    result = item ? JSON.parse(item) : [];
-    if (result.length == 0) {
-      throw new Error('no results');
-    }
+    const result: Doctor[] = item ? JSON.parse(item) : [];
     const filteredResult = result.filter(
       (element) =>
         searchValue === element.surename || searchValue === element.city
     );
+    if (filteredResult.length === 0) {
+      setErrorMessage('Es gibt keine Ärzte unter diesem Suchbegriff');
+    }
     setDoctors(filteredResult);
   }
 
   return (
     <div className={styles.page}>
-      <header className={styles.page__header}>
-        <Header />
-      </header>
-      <div className={styles.page__searchbar}>
-        <Searchbar
-          value={searchValue}
-          placeholder={'Suche nach Name oder Stadt'}
-          onValueChange={(value) => setSearchValue(value)}
-          handleSubmit={(event) => {
-            event.preventDefault();
-            getdoctors();
-          }}
-        />
-      </div>
+      <Header className={styles.page__header} />
+      <Searchbar
+        className={styles.page__searchbar}
+        value={searchValue}
+        placeholder={'Suche nach Name oder Stadt'}
+        onValueChange={(value) => setSearchValue(value)}
+        handleSubmit={(event) => {
+          event.preventDefault();
+          getdoctors();
+        }}
+      />
       <section className={styles.page__section}>
+        {errorMessage ? <h3>{errorMessage}</h3> : ''}
         {doctors.map((doctor) => {
           return (
             <DoctorCard
@@ -56,9 +56,7 @@ export default function Home(): JSX.Element {
           );
         })}
       </section>
-      <nav className={styles.page__navigation}>
-        <Navigation activeLink="home" />
-      </nav>
+      <Navigation className={styles.page__navigation} activeLink="home" />
     </div>
   );
 }
