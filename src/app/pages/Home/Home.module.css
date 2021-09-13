@@ -23,7 +23,7 @@
 }
 
 .card {
-  margin-bottom: 5rem;
+  margin: 0 var(--card-space) 5rem;
 }
 
 .page__navigation {
