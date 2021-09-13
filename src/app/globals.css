@@ -32,11 +32,12 @@
   --bg-primary: #dbf4ff;
   --color-accent: #f68d30;
   --text-color-primary: #145376;
-  --text-size-primary: 16;
+  --text-size-primary: 1rem;
   --main-heading-font-family: 'Encode Sans Semi Expanded', sans-serif;
   --main-text-font-family: 'Roboto', sans-serif;
   --card-heading-font-family: 'Encode Sans Condensed', sans-serif;
-  --card-bg: rgba(255, 255, 255, 85%);
+  --card-heading-font-size: 1.25rem;
+  --card-bg: rgba(255, 255, 255, 60%);
   --border-radius: 10px;
   --card-space: 0.8rem;
 }
@@ -47,9 +48,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--main-text-font-family);
+  font-weight: 300;
+  color: var(--text-color-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

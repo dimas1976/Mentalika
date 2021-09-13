@@ -1,0 +1,36 @@
+.doctorCard {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 7px 12px -2px rgba(20, 83, 118, 0.39);
+}
+.imageCropper {
+  position: absolute;
+  top: -3.5rem;
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.imageCropper img {
+  width: 100%;
+}
+
+.content {
+  text-align: center;
+  padding: 3.5rem 1rem 0.5rem;
+}
+
+.content .heading {
+  font-family: var(--card-heading-font-family);
+  font-size: var(--card-heading-font-size);
+  color: var(--text-color-primary);
+}
+
+.content .adress {
+  font-weight: 300;
+  padding-top: 0.5rem;
+}
