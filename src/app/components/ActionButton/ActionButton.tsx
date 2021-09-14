@@ -4,15 +4,15 @@ import styles from './ActionButton.module.css';
 
 type ActionButtonProps = {
   children: ReactNode;
-  onClickHandle?: () => void;
+  onClick?: () => void;
 };
 
 export default function ActionButton({
   children,
-  onClickHandle,
+  onClick,
 }: ActionButtonProps): JSX.Element {
   return (
-    <button className={styles.button} onClick={onClickHandle}>
+    <button className={styles.button} onClick={onClick}>
       {children}
     </button>
   );

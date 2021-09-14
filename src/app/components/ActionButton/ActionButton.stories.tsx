@@ -8,7 +8,7 @@ export default {
 };
 
 export const BookButton = (): JSX.Element => (
-  <Button onClickHandle={() => console.log('huhu')}>buchen</Button>
+  <Button onClick={() => console.log('huhu')}>buchen</Button>
 );
 export const BackButton = (): JSX.Element => <Button>zurück</Button>;
 export const ProfileButton = (): JSX.Element => <Button>zum Profil</Button>;
