@@ -11,7 +11,7 @@ export default function Home(): JSX.Element {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [errorMessage, setErrorMessage] = useState('');
 
-  function getdoctors() {
+  function searchForDoctors() {
     setErrorMessage('');
     const item = localStorage.getItem('doctors');
     const result: Doctor[] = item ? JSON.parse(item) : [];
@@ -35,7 +35,7 @@ export default function Home(): JSX.Element {
         onValueChange={(value) => setSearchValue(value)}
         onSubmit={(event) => {
           event.preventDefault();
-          getdoctors();
+          searchForDoctors();
         }}
       />
       <section className={styles.page__section}>
