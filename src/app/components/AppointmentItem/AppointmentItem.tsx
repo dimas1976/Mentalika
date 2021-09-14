@@ -12,7 +12,11 @@ export default function AppointmentItem({
   return (
     <form className={styles.form}>
       <input className={styles.inputField} type="text" value={value} disabled />
-      <ActionButton className={styles.button} children="buchen" />
+      <ActionButton
+        className={styles.button}
+        children="buchen"
+        onClickHandle={() => console.log()}
+      />
     </form>
   );
 }
