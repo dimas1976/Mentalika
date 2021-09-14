@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ReactNode } from 'react';
 import styles from './DoctorCard.module.css';
 
 type DoctorCardProps = {
@@ -7,6 +8,7 @@ type DoctorCardProps = {
   adress: string;
   plz: string;
   city: string;
+  children?: ReactNode;
 };
 
 export default function DoctorCard({
@@ -15,6 +17,7 @@ export default function DoctorCard({
   adress,
   plz,
   city,
+  children,
 }: DoctorCardProps): JSX.Element {
   return (
     <article className={styles.doctorCard}>
@@ -23,7 +26,7 @@ export default function DoctorCard({
       </div>
       <div className={styles.content}>
         <h2 className={styles.heading}>{heading}</h2>
-        <p className={styles.adress}>
+        <p className={`${!children ? styles['adress--pb'] : ''}`}>
           <span>{adress}</span>
           <br />
           <span>
@@ -31,6 +34,7 @@ export default function DoctorCard({
           </span>
         </p>
       </div>
+      {children}
     </article>
   );
 }
