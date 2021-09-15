@@ -40,6 +40,7 @@
   --card-bg: rgba(255, 255, 255, 60%);
   --border-radius: 10px;
   --card-space: 0.8rem;
+  --error-color: #f22;
 }
 
 * {
@@ -62,4 +63,12 @@ code {
 
 #app {
   height: 100vh;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  color: #f22;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
 }

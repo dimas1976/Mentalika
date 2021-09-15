@@ -17,7 +17,9 @@ export default {
 export const Card = (): JSX.Element => (
   <DoctorCard
     imgPath={imageFile}
-    heading="Dipl.-Psych. Sabine Wery von Limont"
+    title="Dipl.-Psych."
+    name="Sabine"
+    surename="Sabine Wery von Limont"
     adress="Max-Brauer-Alee 52,"
     plz={22765}
     city="Hamburg"
@@ -28,7 +30,9 @@ export const Card = (): JSX.Element => (
 export const CardWithAction = (): JSX.Element => (
   <DoctorCard
     imgPath={imageFile}
-    heading="Dipl.-Psych. Sabine Wery von Limont"
+    title="Dipl.-Psych."
+    name="Sabine"
+    surename="Sabine Wery von Limont"
     adress="Max-Brauer-Alee 52,"
     plz={22765}
     city="Hamburg"

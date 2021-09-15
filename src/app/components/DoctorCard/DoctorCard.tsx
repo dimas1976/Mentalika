@@ -4,28 +4,36 @@ import ActionButton from '../ActionButton/ActionButton';
 
 type DoctorCardProps = {
   imgPath: string;
-  heading: string;
+  title: string;
+  name: string;
+  surename: string;
   adress: string;
   plz: number;
   city: string;
   isShowButton: boolean;
+  className?: string;
 };
 
 export default function DoctorCard({
   imgPath,
-  heading,
+  title,
+  name,
+  surename,
   adress,
   plz,
   city,
   isShowButton,
+  className,
 }: DoctorCardProps): JSX.Element {
   return (
-    <article className={styles.doctorCard}>
+    <article className={`${className} ${styles.doctorCard}`}>
       <div className={styles.imageCropper}>
         <img src={imgPath} alt="profile" />
       </div>
       <div className={styles.content}>
-        <h2 className={styles.heading}>{heading}</h2>
+        <h2 className={styles.heading}>
+          {title} {name} {surename}
+        </h2>
         <p className={styles.adress}>
           <span>{adress}</span>
           <br />
