@@ -32,11 +32,7 @@
 
 .content .adress {
   font-weight: 300;
-  padding-top: 0.75rem;
-}
-
-.content .adress--pb {
-  padding-bottom: 1.3rem;
+  padding: 0.75rem 0 1.25rem;
 }
 
 .actionButton {
