@@ -1,6 +1,5 @@
 import React from 'react';
 import AppointmentItem from './AppointmentItem';
-import { formatAppointment } from '../../utility/formatAppointment';
 
 export default {
   title: 'Component/AppointmentItem',
@@ -15,5 +14,5 @@ export default {
 };
 
 export const Appointment = (): JSX.Element => (
-  <AppointmentItem value={formatAppointment()} />
+  <AppointmentItem value="2021-10-22T12:42:00Z" />
 );
