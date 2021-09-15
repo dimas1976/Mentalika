@@ -34,7 +34,9 @@ export default function DoctorCard({
           </span>
         </p>
       </div>
-      {isShowButton && <ActionButton children="zum Profil" />}
+      {isShowButton && (
+        <ActionButton className={styles.actionButton} children="zum Profil" />
+      )}
     </article>
   );
 }
