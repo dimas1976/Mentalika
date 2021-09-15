@@ -11,6 +11,7 @@ type DoctorCardProps = {
   plz: number;
   city: string;
   isShowButton: boolean;
+  className?: string;
 };
 
 export default function DoctorCard({
@@ -22,9 +23,10 @@ export default function DoctorCard({
   plz,
   city,
   isShowButton,
+  className,
 }: DoctorCardProps): JSX.Element {
   return (
-    <article className={styles.doctorCard}>
+    <article className={`${className} ${styles.doctorCard}`}>
       <div className={styles.imageCropper}>
         <img src={imgPath} alt="profile" />
       </div>
