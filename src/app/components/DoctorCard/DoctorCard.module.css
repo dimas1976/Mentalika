@@ -24,7 +24,7 @@
 
 .content {
   text-align: center;
-  padding: 3.5rem 1rem 0.5rem;
+  padding: 3.5rem 1rem 0;
 }
 
 .content .heading {
@@ -35,5 +35,9 @@
 
 .content .adress {
   font-weight: 300;
-  padding-top: 0.5rem;
+  padding: 0.75rem 0 1.25rem;
+}
+
+.actionButton {
+  margin: 1.3rem 0;
 }

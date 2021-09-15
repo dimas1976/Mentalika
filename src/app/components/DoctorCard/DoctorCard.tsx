@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './DoctorCard.module.css';
+import ActionButton from '../ActionButton/ActionButton';
 
 type DoctorCardProps = {
   imgPath: string;
@@ -9,7 +10,7 @@ type DoctorCardProps = {
   adress: string;
   plz: number;
   city: string;
-  className: string;
+  isShowButton: boolean;
 };
 
 export default function DoctorCard({
@@ -20,10 +21,10 @@ export default function DoctorCard({
   adress,
   plz,
   city,
-  className,
+  isShowButton,
 }: DoctorCardProps): JSX.Element {
   return (
-    <article className={`${className} ${styles.doctorCard}`}>
+    <article className={styles.doctorCard}>
       <div className={styles.imageCropper}>
         <img src={imgPath} alt="profile" />
       </div>
@@ -39,6 +40,7 @@ export default function DoctorCard({
           </span>
         </p>
       </div>
+      {isShowButton && <ActionButton children="zum Profil" />}
     </article>
   );
 }
