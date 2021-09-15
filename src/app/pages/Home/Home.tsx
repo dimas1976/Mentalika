@@ -5,6 +5,7 @@ import Navigation from '../../components/navigation/Navigation';
 import styles from './Home.module.css';
 import type { Doctor } from '../../lib/types';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
+import { matchSearch } from '../../utility/matchSearch';
 
 export default function Home(): JSX.Element {
   const [searchValue, setSearchValue] = useState('');
@@ -15,9 +16,8 @@ export default function Home(): JSX.Element {
     setErrorMessage('');
     const item = localStorage.getItem('doctors');
     const result: Doctor[] = item ? JSON.parse(item) : [];
-    const filteredResult = result.filter(
-      (element) =>
-        searchValue === element.surename || searchValue === element.city
+    const filteredResult = result.filter((element) =>
+      matchSearch(element, searchValue)
     );
     if (filteredResult.length === 0) {
       setErrorMessage('Es gibt keine Ärzte unter diesem Suchbegriff');
@@ -52,6 +52,7 @@ export default function Home(): JSX.Element {
               adress={doctor.adress}
               plz={doctor.plz}
               city={doctor.city}
+              isShowButton={true}
             />
           );
         })}
