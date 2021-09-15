@@ -10,13 +10,13 @@ export default function AppointmentItem({
   value,
 }: AppointmentItemProps): JSX.Element {
   return (
-    <form className={styles.form}>
-      <input className={styles.inputField} type="text" value={value} disabled />
+    <div className={styles.appointment}>
+      <span className={styles.date}>{value}</span>
       <ActionButton
         className={styles.button}
         children="buchen"
         onClickHandle={() => console.log()}
       />
-    </form>
+    </div>
   );
 }
