@@ -19,7 +19,7 @@ export const Card = (): JSX.Element => (
     imgPath={imageFile}
     heading="Dipl.-Psych. Sabine Wery von Limont"
     adress="Max-Brauer-Alee 52,"
-    plz="22765"
+    plz={22765}
     city="Hamburg"
     isShowButton={false}
   />
@@ -30,7 +30,7 @@ export const CardWithAction = (): JSX.Element => (
     imgPath={imageFile}
     heading="Dipl.-Psych. Sabine Wery von Limont"
     adress="Max-Brauer-Alee 52,"
-    plz="22765"
+    plz={22765}
     city="Hamburg"
     isShowButton={true}
   />

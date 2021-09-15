@@ -6,7 +6,7 @@ type DoctorCardProps = {
   imgPath: string;
   heading: string;
   adress: string;
-  plz: string;
+  plz: number;
   city: string;
   isShowButton: boolean;
 };
@@ -34,7 +34,9 @@ export default function DoctorCard({
           </span>
         </p>
       </div>
-      {isShowButton && <ActionButton children="zum Profil" />}
+      {isShowButton && (
+        <ActionButton className={styles.actionButton} children="zum Profil" />
+      )}
     </article>
   );
 }
