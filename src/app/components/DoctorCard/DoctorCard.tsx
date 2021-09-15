@@ -6,7 +6,7 @@ type DoctorCardProps = {
   imgPath: string;
   heading: string;
   adress: string;
-  plz: string;
+  plz: number;
   city: string;
   isShowButton: boolean;
 };
