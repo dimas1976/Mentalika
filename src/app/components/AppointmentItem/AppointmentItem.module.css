@@ -1,17 +1,19 @@
-.form {
+.appointment {
   display: flex;
+  align-items: center;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 12px -5px rgba(20, 83, 118, 0.39);
+  background-color: #fff;
 }
 
-.inputField {
+.date {
   border: 0;
-  background-color: #fff;
   border-radius: var(--border-radius);
   padding-left: 1rem;
   color: var(--color-accent);
   font-family: var(--main-text-font-family);
   font-weight: 300;
+  padding-right: 2rem;
 }
 
 .button {
