@@ -33,10 +33,7 @@ export default function Home(): JSX.Element {
         value={searchValue}
         placeholder={'Suche nach Name oder Stadt'}
         onValueChange={(value) => setSearchValue(value)}
-        onSubmit={(event) => {
-          event.preventDefault();
-          searchForDoctors();
-        }}
+        onSubmit={searchForDoctors}
       />
       <section className={styles.page__section}>
         {errorMessage ? <h3>{errorMessage}</h3> : ''}
