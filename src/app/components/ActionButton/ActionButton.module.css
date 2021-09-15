@@ -1,5 +1,6 @@
 .button {
   padding: 0.5rem;
+  margin-bottom: 1.25rem;
   background: linear-gradient(
     67deg,
     rgba(242, 117, 7, 1) 3%,
