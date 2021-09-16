@@ -4,7 +4,7 @@ import NavigationIconLink from '../NavigationIconLink/NavigationIconLink';
 import styles from './Navigation.module.css';
 
 type NavigationProps = {
-  activeLink: 'home' | 'bookmark' | 'notification';
+  activeLink?: 'home' | 'bookmark' | 'notification';
   className?: string;
 };
 
