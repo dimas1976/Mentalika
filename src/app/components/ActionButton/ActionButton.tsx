@@ -4,7 +4,7 @@ import styles from './ActionButton.module.css';
 
 type ActionButtonProps = {
   children: ReactNode;
-  onClickHandle?: () => void;
+  onClickHandle: () => void;
   className?: string;
 };
 
