@@ -9,3 +9,8 @@ export type Doctor = {
   plz: number;
   city: string;
 };
+
+export type Appointment = {
+  docId: string;
+  available: [{ date: string; isBooked: boolean }];
+};
