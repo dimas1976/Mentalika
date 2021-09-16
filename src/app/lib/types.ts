@@ -12,5 +12,10 @@ export type Doctor = {
 
 export type Appointment = {
   docId: string;
-  available: [{ date: string; isBooked: boolean }];
+  available: [DoctorDate];
+};
+
+export type DoctorDate = {
+  date: string;
+  isBooked: boolean;
 };
