@@ -41,6 +41,7 @@ export default function Home(): JSX.Element {
           return (
             <DoctorCard
               className={styles.card}
+              id={doctor.id}
               key={doctor.id}
               imgPath={doctor.image}
               title={doctor.title}
