@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './DoctorCard.module.css';
 import ActionButton from '../ActionButton/ActionButton';
+import { useHistory } from 'react-router';
 
 type DoctorCardProps = {
+  id: string;
   imgPath: string;
   title: string;
   name: string;
@@ -15,6 +17,7 @@ type DoctorCardProps = {
 };
 
 export default function DoctorCard({
+  id,
   imgPath,
   title,
   name,
@@ -25,6 +28,10 @@ export default function DoctorCard({
   isShowButton,
   className,
 }: DoctorCardProps): JSX.Element {
+  const history = useHistory();
+  function navigateToProfile() {
+    history.push(`/doctor/${id}`);
+  }
   return (
     <article className={`${className} ${styles.doctorCard}`}>
       <div className={styles.imageCropper}>
@@ -43,7 +50,11 @@ export default function DoctorCard({
         </p>
       </div>
       {isShowButton && (
-        <ActionButton className={styles.actionButton} children="zum Profil" />
+        <ActionButton
+          className={styles.actionButton}
+          children="zum Profil"
+          onClickHandle={navigateToProfile}
+        />
       )}
     </article>
   );

@@ -1,5 +1,5 @@
 export type Doctor = {
-  id: number;
+  id: string;
   image: string;
   title: string;
   name: string;
