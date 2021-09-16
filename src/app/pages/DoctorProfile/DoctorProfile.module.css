@@ -1,0 +1,19 @@
+@import url(../../globals.css);
+
+.page {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+.about {
+  padding: 1.5rem 1rem 0;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 0.75rem;
+}
+
+.available {
+  padding: 1.5rem 1rem 0;
+}
