@@ -1,3 +1,5 @@
+@import url(../../globals.css);
+
 .doctorCard {
   position: relative;
   display: grid;
@@ -25,12 +27,6 @@
 .content {
   text-align: center;
   padding: 3.5rem 1rem 0;
-}
-
-.content .heading {
-  font-family: var(--card-heading-font-family);
-  font-size: var(--card-heading-font-size);
-  color: var(--text-color-primary);
 }
 
 .content .adress {
