@@ -50,8 +50,8 @@ export default function DoctorProfile(): JSX.Element {
 
   return (
     <div className={styles.page}>
-      <Header className={styles.page__header} />
-      <section>
+      <Header />
+      <main className={styles.page__main}>
         {doctor && (
           <DoctorCard
             id={doctor.id}
@@ -67,11 +67,11 @@ export default function DoctorProfile(): JSX.Element {
         )}
         <article className={`${styles.about} ${styles.article}`}>
           <h2 className={styles.heading}>Über mich</h2>
-          <p className={styles.adress}>{doctor?.bio}</p>
+          <p className={styles.bio}>{doctor?.bio}</p>
         </article>
-        <article className={`${styles.available} ${styles.article}`}>
+        <article className={`${styles.availableCard} ${styles.article}`}>
           <h2 className={styles.heading}>Verfügbare Termine</h2>
-          <div className={styles.dates}>
+          <div className={styles.available__dates}>
             {dates &&
               dates.map((element) => {
                 return (
@@ -80,7 +80,7 @@ export default function DoctorProfile(): JSX.Element {
               })}
           </div>
         </article>
-      </section>
+      </main>
       <Navigation className={styles.page__navigation} />
     </div>
   );
