@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import ActionButton from '../../components/ActionButton/ActionButton';
 import AppointmentItem from '../../components/AppointmentItem/AppointmentItem';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 import Header from '../../components/Header/Header';
@@ -10,6 +11,7 @@ import styles from './DoctorProfile.module.css';
 export default function DoctorProfile(): JSX.Element {
   const { id } = useParams<{ id: string }>();
   const [dates, setDates] = useState<DoctorDate[]>([]);
+  const history = useHistory();
 
   const doctor = getDoctor();
 
@@ -48,6 +50,10 @@ export default function DoctorProfile(): JSX.Element {
     return doctor;
   }
 
+  function goBack() {
+    history.goBack();
+  }
+
   return (
     <div className={styles.page}>
       <Header />
@@ -80,6 +86,7 @@ export default function DoctorProfile(): JSX.Element {
               })}
           </div>
         </article>
+        <ActionButton children="zurück" onClickHandle={goBack} />
       </main>
       <Navigation className={styles.page__navigation} />
     </div>
