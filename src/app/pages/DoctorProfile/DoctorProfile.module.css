@@ -2,7 +2,14 @@
 
 .page {
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto 1fr;
+  padding: 0 1rem;
+}
+
+.page__main {
+  margin: 4rem 0 20%;
+  display: grid;
+  gap: 1rem;
 }
 
 .about {
@@ -11,9 +18,28 @@
 
 .heading {
   text-align: center;
-  padding-bottom: 0.75rem;
+  font-family: var(--card-heading-font-family);
+  font-size: var(--card-heading-font-size);
+  color: var(--text-color-primary);
 }
 
-.available {
+.availableCard {
   padding: 1.5rem 1rem 0;
+}
+
+.available__dates {
+  padding: 0.75rem 0 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.bio {
+  padding: 0.75rem 0 1.5rem;
+}
+
+.page__navigation {
+  position: fixed;
+  bottom: var(--card-space);
+  left: var(--card-space);
+  right: var(--card-space);
 }
