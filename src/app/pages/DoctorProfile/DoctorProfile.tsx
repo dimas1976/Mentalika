@@ -12,35 +12,25 @@ export default function DoctorProfile(): JSX.Element {
   const [dates, setDates] = useState<DoctorDate[]>([]);
 
   const doctor = getDoctor();
-  const myDates: DoctorDate[] = [
-    { date: '2021-10-22T12:00:00Z', isBooked: true },
-    { date: '2021-10-23T12:00:00Z', isBooked: false },
-    { date: '2021-10-24T9:45:00Z', isBooked: false },
-  ];
+
   useEffect(() => {
-    setDates(myDates);
+    getAppointments();
   }, []);
 
-  //   useEffect(() => {
-  //     getAppointments;
-  //   }, [id]);
+  function getAppointments() {
+    const item = localStorage.getItem('appointments');
+    if (!item) {
+      throw new Error('Database Error');
+    }
+    const appointnemts: Appointment[] = item ? JSON.parse(item) : [];
 
-  //   getAppointments();
-
-  //   function getAppointments() {
-  //     const item = localStorage.getItem('appointments');
-  //     const appointnemts: Appointment[] = item ? JSON.parse(item) : [];
-  //     if (appointnemts.length === 0) {
-  //       throw new Error('Database Error');
-  //     }
-
-  //     const filteredAppointmentsByDoctorId = appointnemts.find(
-  //       (element) => element.docId === doctor.id
-  //     );
-  //     const freeDates = filteredAppointmentsByDoctorId?.available;
-  //     const notBookedDates = freeDates?.filter((element) => !element.isBooked);
-  //     if (notBookedDates) setDates(notBookedDates);
-  //   }
+    const filteredAppointmentsByDoctorId = appointnemts.find(
+      (element) => element.doctorId === doctor.id
+    );
+    const freeDates = filteredAppointmentsByDoctorId?.availability;
+    const notBookedDates = freeDates?.filter((element) => !element.isBooked);
+    if (notBookedDates) setDates(notBookedDates);
+  }
 
   function getDoctor(): Doctor {
     const item = localStorage.getItem('doctors');
@@ -84,7 +74,9 @@ export default function DoctorProfile(): JSX.Element {
           <div className={styles.dates}>
             {dates &&
               dates.map((element) => {
-                return <AppointmentItem value={element.date} />;
+                return (
+                  <AppointmentItem key={element.date} value={element.date} />
+                );
               })}
           </div>
         </article>
