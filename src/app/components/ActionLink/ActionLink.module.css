@@ -1,5 +1,5 @@
 .link {
-  text-align: center;
+  display: grid;
   padding: 0.5rem;
   background: linear-gradient(
     67deg,
