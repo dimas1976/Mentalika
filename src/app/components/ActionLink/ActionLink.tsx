@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom';
 type ActionLinkProp = {
   path: string;
   children: React.ReactNode;
+  className?: string;
 };
 
 export default function ActionLink({
   path,
   children,
+  className,
 }: ActionLinkProp): JSX.Element {
   return (
-    <div className={styles.link}>
+    <div className={`${className ? className : ''} ${styles.link}`}>
       <Link to={path}> {children}</Link>
     </div>
   );
