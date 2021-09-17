@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './DoctorCard.module.css';
-import ActionButton from '../ActionButton/ActionButton';
-import { useHistory } from 'react-router';
+import ActionLink from '../ActionLink/ActionLink';
 
 type DoctorCardProps = {
   id: string;
@@ -28,12 +27,8 @@ export default function DoctorCard({
   isShowButton,
   className,
 }: DoctorCardProps): JSX.Element {
-  const history = useHistory();
-  function navigateToProfile() {
-    history.push(`/doctor/${id}`);
-  }
   return (
-    <article className={`${className} ${styles.doctorCard}`}>
+    <article className={`${className ? className : ''} ${styles.doctorCard}`}>
       <div className={styles.imageCropper}>
         <img src={imgPath} alt="profile" />
       </div>
@@ -50,11 +45,9 @@ export default function DoctorCard({
         </p>
       </div>
       {isShowButton && (
-        <ActionButton
-          className={styles.actionButton}
-          children="zum Profil"
-          onClickHandle={navigateToProfile}
-        />
+        <ActionLink className={styles.actionLink} path={`/doctor/${id}`}>
+          zum Profil
+        </ActionLink>
       )}
     </article>
   );
