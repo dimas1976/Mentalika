@@ -1,5 +1,6 @@
 .appointment {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 12px -5px rgba(20, 83, 118, 0.39);
