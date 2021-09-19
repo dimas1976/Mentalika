@@ -10,8 +10,14 @@ function App(): JSX.Element {
         <Route path="/home">
           <Home />
         </Route>
+        <Route path="/search">
+          <Home />
+        </Route>
         <Route path="/doctor/:id">
           <DoctorProfile />
+        </Route>
+        <Route path="/">
+          <Home />
         </Route>
       </Switch>
     </Router>
