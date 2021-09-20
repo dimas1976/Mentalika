@@ -54,8 +54,6 @@ export default function DoctorProfile(): JSX.Element {
   function goBack() {
     // history.replace(location.pathname, { fromProfilePage: true });
     // history.push(location.search);
-    const refetchEvent = new CustomEvent('refetch');
-    document.dispatchEvent(refetchEvent);
     history.goBack();
   }
 
