@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import ActionButton from '../../components/ActionButton/ActionButton';
 import AppointmentItem from '../../components/AppointmentItem/AppointmentItem';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
@@ -12,8 +12,6 @@ export default function DoctorProfile(): JSX.Element {
   const { id } = useParams<{ id: string }>();
   const [dates, setDates] = useState<DoctorDate[]>([]);
   const history = useHistory();
-  const location = useLocation();
-
   const doctor = getDoctor();
 
   useEffect(() => {
@@ -52,8 +50,6 @@ export default function DoctorProfile(): JSX.Element {
   }
 
   function goBack() {
-    // history.replace(location.pathname, { fromProfilePage: true });
-    // history.push(location.search);
     history.goBack();
   }
 
