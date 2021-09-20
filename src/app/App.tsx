@@ -7,12 +7,6 @@ function App(): JSX.Element {
   return (
     <Router>
       <Switch>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/search">
-          <Home />
-        </Route>
         <Route path="/doctor/:id">
           <DoctorProfile />
         </Route>
