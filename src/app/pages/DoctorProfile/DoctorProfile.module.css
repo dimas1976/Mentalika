@@ -1,0 +1,49 @@
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 0 1rem;
+}
+
+.page__main {
+  margin: 4rem 0 20%;
+  display: grid;
+  gap: 1rem;
+}
+
+.article {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 7px 12px -7px rgba(20, 83, 118, 0.39);
+}
+
+.about {
+  padding: 1.5rem 1rem 0;
+}
+
+.heading {
+  text-align: center;
+  font-family: var(--card-heading-font-family);
+  font-size: var(--card-heading-font-size);
+  color: var(--text-color-primary);
+}
+
+.availableCard {
+  padding: 1.5rem 1rem 0;
+}
+
+.available__dates {
+  padding: 0.75rem 0 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.bio {
+  padding: 0.75rem 0 1.5rem;
+}
+
+.page__navigation {
+  position: fixed;
+  bottom: var(--card-space);
+  left: var(--card-space);
+  right: var(--card-space);
+}

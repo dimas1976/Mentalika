@@ -16,6 +16,7 @@ export default {
 
 export const Card = (): JSX.Element => (
   <DoctorCard
+    id="1"
     imgPath={imageFile}
     title="Dipl.-Psych."
     name="Sabine"
@@ -29,6 +30,7 @@ export const Card = (): JSX.Element => (
 
 export const CardWithAction = (): JSX.Element => (
   <DoctorCard
+    id="2"
     imgPath={imageFile}
     title="Dipl.-Psych."
     name="Sabine"

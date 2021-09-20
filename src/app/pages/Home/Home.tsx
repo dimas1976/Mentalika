@@ -27,7 +27,7 @@ export default function Home(): JSX.Element {
 
   return (
     <div className={styles.page}>
-      <Header className={styles.page__header} />
+      <Header />
       <Searchbar
         className={styles.page__searchbar}
         value={searchValue}
@@ -41,6 +41,7 @@ export default function Home(): JSX.Element {
           return (
             <DoctorCard
               className={styles.card}
+              id={doctor.id}
               key={doctor.id}
               imgPath={doctor.image}
               title={doctor.title}

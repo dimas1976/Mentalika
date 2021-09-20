@@ -27,17 +27,11 @@
   padding: 3.5rem 1rem 0;
 }
 
-.content .heading {
-  font-family: var(--card-heading-font-family);
-  font-size: var(--card-heading-font-size);
-  color: var(--text-color-primary);
-}
-
 .content .adress {
   font-weight: 300;
   padding: 0.75rem 0 1.25rem;
 }
 
-.actionButton {
+.actionLink {
   margin-bottom: 1.3rem;
 }

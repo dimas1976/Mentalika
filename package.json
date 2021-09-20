@@ -12,7 +12,7 @@
     "prepare": "husky install",
     "test": "prettier --check . && eslint . && stylelint \"**/*.css\" ",
     "start": "node dist/server.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s src/app/components/assets/images",
     "storybook:build": "build-storybook -o dist/storybook -s src/app/components/assets/images"
   },
   "devDependencies": {

@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './DoctorCard.module.css';
-import ActionButton from '../ActionButton/ActionButton';
+import ActionLink from '../ActionLink/ActionLink';
 
 type DoctorCardProps = {
+  id: string;
   imgPath: string;
   title: string;
   name: string;
@@ -15,6 +16,7 @@ type DoctorCardProps = {
 };
 
 export default function DoctorCard({
+  id,
   imgPath,
   title,
   name,
@@ -26,7 +28,7 @@ export default function DoctorCard({
   className,
 }: DoctorCardProps): JSX.Element {
   return (
-    <article className={`${className} ${styles.doctorCard}`}>
+    <article className={`${className ? className : ''} ${styles.doctorCard}`}>
       <div className={styles.imageCropper}>
         <img src={imgPath} alt="profile" />
       </div>
@@ -43,7 +45,9 @@ export default function DoctorCard({
         </p>
       </div>
       {isShowButton && (
-        <ActionButton className={styles.actionButton} children="zum Profil" />
+        <ActionLink className={styles.actionLink} path={`/doctor/${id}`}>
+          zum Profil
+        </ActionLink>
       )}
     </article>
   );

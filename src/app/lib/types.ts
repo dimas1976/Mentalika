@@ -1,5 +1,5 @@
 export type Doctor = {
-  id: number;
+  id: string;
   image: string;
   title: string;
   name: string;
@@ -8,4 +8,14 @@ export type Doctor = {
   adress: string;
   plz: number;
   city: string;
+};
+
+export type Appointment = {
+  doctorId: string;
+  availability: DoctorDate[];
+};
+
+export type DoctorDate = {
+  date: string;
+  isBooked: boolean;
 };
