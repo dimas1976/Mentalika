@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import Navigation from '../../components/navigation/Navigation';
@@ -9,6 +9,7 @@ import { matchSearch } from '../../utility/matchSearch';
 import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { useDebounce } from 'use-debounce';
 
 export default function Home(): JSX.Element {
   const query = new URLSearchParams(useLocation().search);
@@ -16,10 +17,11 @@ export default function Home(): JSX.Element {
   const [searchValue, setSearchValue] = useState(searchQuery || '');
   const history = useHistory();
   const [doctors] = useLocalStorage<Doctor[]>('doctors', []);
+  const [debouncedSearchValue] = useDebounce(searchValue, 500);
 
-  function searchForDoctors() {
-    history.replace(`?q=${searchValue}`);
-  }
+  useEffect(() => {
+    history.replace(`?q=${debouncedSearchValue}`);
+  }, [debouncedSearchValue]);
 
   return (
     <div className={styles.page}>
@@ -28,13 +30,16 @@ export default function Home(): JSX.Element {
         className={styles.page__searchbar}
         value={searchValue}
         placeholder={'Suche nach Name oder Stadt'}
-        onValueChange={(value) => setSearchValue(value)}
-        onSubmit={searchForDoctors}
+        onValueChange={(value) => {
+          setSearchValue(value);
+        }}
       />
       <section className={styles.page__section}>
-        {searchValue &&
+        {debouncedSearchValue &&
           doctors
-            .filter((doctor) => matchSearch(doctor, searchValue))
+            .filter((doctor) =>
+              matchSearch(doctor, debouncedSearchValue.toString())
+            )
             .map((doctor) => {
               return (
                 <DoctorCard
