@@ -54,6 +54,30 @@ export default function DoctorProfile(): JSX.Element {
     history.goBack();
   }
 
+  function bookAppointment(date: string) {
+    const bookedDate = dates.find((element) => element.date === date);
+    if (!bookedDate) {
+      throw new Error('Error');
+    }
+    bookedDate.isBooked = true;
+
+    const item = localStorage.getItem('appointments');
+    if (!item) {
+      throw new Error('Database Error');
+    }
+    const appointnemts: Appointment[] = item ? JSON.parse(item) : [];
+
+    const filteredAppointmentsByDoctorId = appointnemts.find(
+      (element) => element.doctorId === doctor.id
+    );
+    if (!filteredAppointmentsByDoctorId) {
+      throw new Error('');
+    }
+    filteredAppointmentsByDoctorId.availability = [...dates];
+    const json = JSON.stringify(appointnemts);
+    localStorage.setItem('appointments', json);
+  }
+
   return (
     <div className={styles.page}>
       <Header />
@@ -81,7 +105,11 @@ export default function DoctorProfile(): JSX.Element {
             {dates &&
               dates.map((element) => {
                 return (
-                  <AppointmentItem key={element.date} value={element.date} />
+                  <AppointmentItem
+                    key={element.date}
+                    value={element.date}
+                    clickHandle={() => bookAppointment(element.date)}
+                  />
                 );
               })}
           </div>
