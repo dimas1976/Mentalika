@@ -5,6 +5,7 @@ import AppointmentItem from '../../components/AppointmentItem/AppointmentItem';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/navigation/Navigation';
+import useDoctorById from '../../hooks/useDoctorById';
 import type { Appointment, Doctor, DoctorDate } from '../../lib/types';
 import styles from './DoctorProfile.module.css';
 
@@ -12,7 +13,7 @@ export default function DoctorProfile(): JSX.Element {
   const { id } = useParams<{ id: string }>();
   const [dates, setDates] = useState<DoctorDate[]>([]);
   const history = useHistory();
-  const doctor = getDoctor();
+  const [doctor] = useDoctorById(id);
 
   useEffect(() => {
     getAppointments();
@@ -31,22 +32,6 @@ export default function DoctorProfile(): JSX.Element {
     const freeDates = filteredAppointmentsByDoctorId?.availability;
     const notBookedDates = freeDates?.filter((element) => !element.isBooked);
     if (notBookedDates) setDates(notBookedDates);
-  }
-
-  function getDoctor(): Doctor {
-    const item = localStorage.getItem('doctors');
-    const doctors: Doctor[] = item ? JSON.parse(item) : [];
-    if (doctors.length === 0) {
-      throw new Error('Database Error');
-    }
-    const doctor = doctors.find((el) => {
-      return el.id == id;
-    });
-
-    if (!doctor) {
-      throw new Error('There is no doctor');
-    }
-    return doctor;
   }
 
   function goBack() {
