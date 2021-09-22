@@ -14,6 +14,5 @@ export const AppSearchbar = (): JSX.Element => (
     placeholder="Suche nach Name oder Stadt"
     value=""
     onValueChange={() => console.log()}
-    onSubmit={() => console.log('huhu')}
   />
 );

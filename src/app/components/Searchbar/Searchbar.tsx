@@ -5,7 +5,6 @@ import SearchIcon from '../assets/SearchIcon';
 type SearchbarProps = {
   placeholder?: string;
   value: string;
-  onSubmit: () => void;
   onValueChange: (value: string) => void;
   className?: string;
 };
@@ -15,11 +14,9 @@ export default function Searchbar({
   value,
   onValueChange,
   className,
-  onSubmit,
 }: SearchbarProps): JSX.Element {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    onSubmit();
   }
   return (
     <form className={`${className} ${styles.form}`} onSubmit={handleSubmit}>

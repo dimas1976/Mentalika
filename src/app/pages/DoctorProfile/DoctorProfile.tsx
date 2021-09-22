@@ -12,7 +12,6 @@ export default function DoctorProfile(): JSX.Element {
   const { id } = useParams<{ id: string }>();
   const [dates, setDates] = useState<DoctorDate[]>([]);
   const history = useHistory();
-
   const doctor = getDoctor();
 
   useEffect(() => {
