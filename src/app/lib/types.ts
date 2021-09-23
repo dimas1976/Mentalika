@@ -24,8 +24,3 @@ export type UserData = {
   doctorId: string;
   appointments: string[];
 };
-
-// export type UserAppointment = {
-//   doctorId: string;
-//   dates: [];
-// };

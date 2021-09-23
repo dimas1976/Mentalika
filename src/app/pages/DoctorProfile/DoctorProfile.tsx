@@ -71,8 +71,6 @@ export default function DoctorProfile(): JSX.Element {
   function saveAppointmentForUser(date: string) {
     const foundElement = userData.find((element) => element.doctorId === id);
     if (!foundElement) {
-      console.log('not found');
-
       const newAppointment = [
         ...userData,
         { doctorId: id, appointments: [date] },
