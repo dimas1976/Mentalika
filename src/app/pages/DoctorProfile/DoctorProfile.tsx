@@ -5,7 +5,9 @@ import AppointmentItem from '../../components/AppointmentItem/AppointmentItem';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/navigation/Navigation';
+import useAvailableAppointments from '../../hooks/useAvailableAppointments';
 import useDoctorById from '../../hooks/useDoctorById';
+import useLocalStorage from '../../hooks/useLocalStorage';
 import type { Appointment, Doctor, DoctorDate } from '../../lib/types';
 import styles from './DoctorProfile.module.css';
 
@@ -14,19 +16,18 @@ export default function DoctorProfile(): JSX.Element {
   const [dates, setDates] = useState<DoctorDate[]>([]);
   const history = useHistory();
   const [doctor] = useDoctorById(id);
+  // const freeDates = useAvailableAppointments(id);
+  const [appointments, setAppointments] = useLocalStorage<Appointment[]>(
+    'appointments',
+    []
+  );
 
   useEffect(() => {
     getAppointments();
   }, []);
 
   function getAppointments() {
-    const item = localStorage.getItem('appointments');
-    if (!item) {
-      throw new Error('Database Error');
-    }
-    const appointnemts: Appointment[] = item ? JSON.parse(item) : [];
-
-    const filteredAppointmentsByDoctorId = appointnemts.find(
+    const filteredAppointmentsByDoctorId = appointments.find(
       (element) => element.doctorId === doctor.id
     );
     const freeDates = filteredAppointmentsByDoctorId?.availability;
@@ -45,21 +46,14 @@ export default function DoctorProfile(): JSX.Element {
     }
     bookedDate.isBooked = true;
 
-    const item = localStorage.getItem('appointments');
-    if (!item) {
-      throw new Error('Database Error');
-    }
-    const appointnemts: Appointment[] = item ? JSON.parse(item) : [];
-
-    const filteredAppointmentsByDoctorId = appointnemts.find(
+    const filteredAppointmentsByDoctorId = appointments.find(
       (element) => element.doctorId === doctor.id
     );
     if (!filteredAppointmentsByDoctorId) {
       throw new Error('');
     }
     filteredAppointmentsByDoctorId.availability = [...dates];
-    const json = JSON.stringify(appointnemts);
-    localStorage.setItem('appointments', json);
+    setAppointments(appointments);
   }
 
   return (
