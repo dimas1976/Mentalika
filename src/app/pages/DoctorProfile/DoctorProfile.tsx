@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 import Navigation from '../../components/navigation/Navigation';
 import useDoctorById from '../../hooks/useDoctorById';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import type { Appointment, DoctorDate } from '../../lib/types';
+import type { Appointment, DoctorDate, UserData } from '../../lib/types';
 import styles from './DoctorProfile.module.css';
 
 export default function DoctorProfile(): JSX.Element {
@@ -20,7 +20,16 @@ export default function DoctorProfile(): JSX.Element {
     []
   );
 
+  const [userData, setUserData] = useLocalStorage<UserData[]>('userData', []);
+  const userDataObj: UserData[] = [
+    {
+      doctorId: '',
+      appointments: [],
+    },
+  ];
+
   useEffect(() => {
+    if (!userDataObj) setUserData(userDataObj);
     getAppointments();
   }, []);
 
@@ -38,6 +47,11 @@ export default function DoctorProfile(): JSX.Element {
   }
 
   function bookAppointment(date: string) {
+    setDateBooked(date);
+    saveAppointmentForUser(date);
+  }
+
+  function setDateBooked(date: string) {
     const bookedDate = dates.find((element) => element.date === date);
     if (!bookedDate) {
       throw new Error('Error');
@@ -52,6 +66,22 @@ export default function DoctorProfile(): JSX.Element {
     }
     filteredAppointmentsByDoctorId.availability = [...dates];
     setAppointments(appointments);
+  }
+
+  function saveAppointmentForUser(date: string) {
+    const foundElement = userData.find((element) => element.doctorId === id);
+    if (!foundElement) {
+      console.log('not found');
+
+      const newAppointment = [
+        ...userData,
+        { doctorId: id, appointments: [date] },
+      ];
+      setUserData(newAppointment);
+    } else {
+      foundElement.appointments = [...foundElement.appointments, date];
+      setUserData(userData);
+    }
   }
 
   return (
