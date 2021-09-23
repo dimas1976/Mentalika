@@ -5,10 +5,7 @@ import useLocalStorage from './useLocalStorage';
 export default function useAvailableAppointments(
   doctorId: string
 ): DoctorDate[] {
-  const [appointments, setAppointments] = useLocalStorage<Appointment[]>(
-    'appointments',
-    []
-  );
+  const [appointments] = useLocalStorage<Appointment[]>('appointments', []);
 
   const [doctor] = useDoctorById(doctorId);
 
