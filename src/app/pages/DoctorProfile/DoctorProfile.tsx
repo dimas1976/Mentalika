@@ -15,7 +15,6 @@ export default function DoctorProfile(): JSX.Element {
   const [dates, setDates] = useState<DoctorDate[]>([]);
   const history = useHistory();
   const [doctor] = useDoctorById(id);
-  // const freeDates = useAvailableAppointments(id);
   const [appointments, setAppointments] = useLocalStorage<Appointment[]>(
     'appointments',
     []
