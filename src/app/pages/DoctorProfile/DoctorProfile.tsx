@@ -5,10 +5,9 @@ import AppointmentItem from '../../components/AppointmentItem/AppointmentItem';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/navigation/Navigation';
-import useAvailableAppointments from '../../hooks/useAvailableAppointments';
 import useDoctorById from '../../hooks/useDoctorById';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import type { Appointment, Doctor, DoctorDate } from '../../lib/types';
+import type { Appointment, DoctorDate } from '../../lib/types';
 import styles from './DoctorProfile.module.css';
 
 export default function DoctorProfile(): JSX.Element {
