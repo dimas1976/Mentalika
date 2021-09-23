@@ -19,3 +19,8 @@ export type DoctorDate = {
   date: string;
   isBooked: boolean;
 };
+
+export type UserData = {
+  doctorId: string;
+  appointments: string[];
+};

@@ -1,14 +1,16 @@
 import React from 'react';
-import ActionButton from '../ActionButton/ActionButton';
 import styles from './AppointmentItem.module.css';
 import { formatAppointment } from '../../utility/formatAppointment';
+import ActionButton from '../ActionButton/ActionButton';
 
 type AppointmentItemProps = {
   value: string;
+  clickHandle: (value: string) => void;
 };
 
 export default function AppointmentItem({
   value,
+  clickHandle,
 }: AppointmentItemProps): JSX.Element {
   return (
     <div className={styles.appointment}>
@@ -16,7 +18,7 @@ export default function AppointmentItem({
       <ActionButton
         className={styles.button}
         children="buchen"
-        onClickHandle={() => console.log()}
+        onClickHandle={() => clickHandle(value)}
       />
     </div>
   );

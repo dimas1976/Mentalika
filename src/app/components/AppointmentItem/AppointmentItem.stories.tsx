@@ -14,5 +14,8 @@ export default {
 };
 
 export const Appointment = (): JSX.Element => (
-  <AppointmentItem value="2021-10-22T12:42:00Z" />
+  <AppointmentItem
+    value="2021-10-22T12:42:00Z"
+    clickHandle={() => console.log()}
+  />
 );
