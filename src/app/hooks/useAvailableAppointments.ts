@@ -13,7 +13,7 @@ export default function useAvailableAppointments(
     (element) => element.doctorId === doctor.id
   );
   if (!filteredAppointmentsByDoctorId) {
-    throw new Error('There is no doctor with the ID');
+    throw new Error('There is no doctor with this ID');
   }
 
   const freeDates: DoctorDate[] = filteredAppointmentsByDoctorId.availability;
