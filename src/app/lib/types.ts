@@ -21,11 +21,11 @@ export type DoctorDate = {
 };
 
 export type UserData = {
-  userId: string;
-  appointments: [
-    {
-      doctorId: string;
-      dates: [];
-    }
-  ];
+  doctorId: string;
+  appointments: string[];
 };
+
+// export type UserAppointment = {
+//   doctorId: string;
+//   dates: [];
+// };
