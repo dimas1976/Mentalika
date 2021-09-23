@@ -7,7 +7,7 @@ export default function useDoctorById(id: string): [Doctor] {
   const [doctor] = useState<Doctor>(() => {
     const doctor = doctors.find((el) => el.id == id);
     if (!doctor) {
-      throw new Error('');
+      throw new Error('There is no doctor with this ID');
     }
     return doctor;
   });
