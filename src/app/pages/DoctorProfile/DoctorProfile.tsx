@@ -21,15 +21,8 @@ export default function DoctorProfile(): JSX.Element {
   );
 
   const [userData, setUserData] = useLocalStorage<UserData[]>('userData', []);
-  const userDataObj: UserData[] = [
-    {
-      doctorId: '',
-      appointments: [],
-    },
-  ];
 
   useEffect(() => {
-    if (!userDataObj) setUserData(userDataObj);
     getAppointments();
   }, []);
 
