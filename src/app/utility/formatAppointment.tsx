@@ -19,11 +19,25 @@ function formatMinutesOutput(date: Date): string {
   return minutes == 0 ? '00' : minutes.toString();
 }
 
-export function formatAppointment(value: string): string {
+export function formatAppointment(value: string): {
+  weekday: string;
+  date: number;
+  month: number;
+  hours: number;
+  minutes: string;
+} {
   const date = new Date(value);
-  const appointmentDate = `${getWeekDay(date)}.${date.getDate()}.${
-    date.getMonth() + 1
-  }  ${date.getHours()}:${formatMinutesOutput(date)} Uhr`;
+  // const appointmentDate = `${getWeekDay(date)}.${date.getDate()}.${
+  //   date.getMonth() + 1
+  // }  ${date.getHours()}:${formatMinutesOutput(date)} Uhr`;
 
-  return appointmentDate;
+  // return appointmentDate;
+
+  return {
+    weekday: getWeekDay(date),
+    date: date.getDate(),
+    month: date.getMonth() + 1,
+    hours: date.getHours(),
+    minutes: formatMinutesOutput(date),
+  };
 }
