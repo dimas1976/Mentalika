@@ -1,0 +1,12 @@
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 0 1rem;
+  height: 100vh;
+}
+
+.section {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 7px 12px -7px rgba(20, 83, 118, 0.39);
+}
