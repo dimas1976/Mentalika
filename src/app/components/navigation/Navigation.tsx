@@ -28,7 +28,7 @@ export default function Navigation({
           isActive={activeLink === 'bookmark'}
         />
       </Link>
-      <Link to="#">
+      <Link to="/overview">
         <NavigationIconLink
           className={styles.navigationItem}
           iconType="notification"
