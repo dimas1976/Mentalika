@@ -12,9 +12,13 @@ export default function AppointmentItem({
   value,
   clickHandle,
 }: AppointmentItemProps): JSX.Element {
+  const formattedAppointment = formatAppointment(value);
   return (
     <div className={styles.appointment}>
-      <span className={styles.date}>{formatAppointment(value)}</span>
+      {/* <span className={styles.date}>{formatAppointment(value)}</span> */}
+      <span
+        className={styles.date}
+      >{`${formattedAppointment.weekday}.${formattedAppointment.date}.${formattedAppointment.month} ${formattedAppointment.hours}:${formattedAppointment.minutes} Uhr`}</span>
       <ActionButton
         className={styles.button}
         children="buchen"
