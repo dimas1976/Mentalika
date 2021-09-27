@@ -31,7 +31,6 @@ export default function AppointmentsOverview(): JSX.Element {
                 const doctor = getDoctorById(user.doctorId);
                 return (
                   <article className={styles.section__notification}>
-                    {/* {`Sie haben am`<span> `${formattedAppointment.date}.${formattedAppointment.month}`</span> `um ${formattedAppointment.hours}:${formattedAppointment.minutes} Uhr einen Termin bei ${doctor.name} ${doctor.surename}`} */}
                     <p>
                       Sie haben am{' '}
                       <span className={styles['section__notification--accent']}>
