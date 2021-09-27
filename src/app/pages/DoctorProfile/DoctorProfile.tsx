@@ -42,6 +42,7 @@ export default function DoctorProfile(): JSX.Element {
   function bookAppointment(date: string) {
     setDateBooked(date);
     saveAppointmentForUser(date);
+    history.push('/overview');
   }
 
   function setDateBooked(date: string) {
