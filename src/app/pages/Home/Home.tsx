@@ -20,7 +20,11 @@ export default function Home(): JSX.Element {
   const [debouncedSearchValue] = useDebounce(searchValue, 500);
 
   useEffect(() => {
-    history.replace(`?q=${debouncedSearchValue}`);
+    if (searchValue === '') {
+      history.replace(``);
+    } else {
+      history.replace(`?q=${debouncedSearchValue}`);
+    }
   }, [debouncedSearchValue]);
 
   return (
