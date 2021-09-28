@@ -23,24 +23,39 @@ export default function AppointmentsOverview(): JSX.Element {
       <Header />
       <main className={styles.page__main}>
         <section className={styles.section}>
-          <h2>Terminübersicht</h2>
+          <h2 className={styles.section__heading}>Terminübersicht</h2>
           {userData &&
             userData.map((user) =>
               user.appointments.map((element) => {
                 const formattedAppointment = formatAppointment(element);
                 const doctor = getDoctorById(user.doctorId);
                 return (
-                  <p>
-                    {`Sie haben am ${formattedAppointment.date}.${formattedAppointment.month} um ${formattedAppointment.hours}:${formattedAppointment.minutes} Uhr einen Termin bei ${doctor.name} ${doctor.surename}`}
-                    {/* {element}
-                    {getDoctorById(user.doctorId).name} */}
-                  </p>
+                  <article className={styles.section__notification}>
+                    <p>
+                      Sie haben am{' '}
+                      <span className={styles['section__notification--accent']}>
+                        {formattedAppointment.date}.{formattedAppointment.month}
+                      </span>{' '}
+                      um{' '}
+                      <span className={styles['section__notification--accent']}>
+                        {formattedAppointment.hours}:
+                        {formattedAppointment.minutes}
+                      </span>{' '}
+                      Uhr einen Termin bei{' '}
+                      <span className={styles['section__notification--accent']}>
+                        {doctor.name} {doctor.surename}
+                      </span>
+                    </p>
+                  </article>
                 );
               })
             )}
         </section>
       </main>
-      <Navigation className={styles.page__navigation} />
+      <Navigation
+        activeLink="notification"
+        className={styles.page__navigation}
+      />
     </div>
   );
 }
