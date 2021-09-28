@@ -15,7 +15,7 @@ export default function Home(): JSX.Element {
   const mockData = [
     {
       id: '1',
-      image: './src/app/components/assets/images/sabine.jpg',
+      image: 'sabine.jpg',
       title: 'Dipl.-Psych.',
       name: 'Sabine',
       surename: 'Wery von Limont',
@@ -26,7 +26,7 @@ export default function Home(): JSX.Element {
     },
     {
       id: '2',
-      image: './src/app/components/assets/images/marc.jpg',
+      image: 'marc.jpg',
       title: 'Dipl.-Psych.',
       name: 'Marc',
       surename: 'Almond',
@@ -37,7 +37,7 @@ export default function Home(): JSX.Element {
     },
     {
       id: '3',
-      image: './src/app/components/assets/images/wilhelm.jpg',
+      image: 'wilhelm.jpg',
       title: 'Facharzt für Psychiatrie',
       name: 'Wilhelm-Georg',
       surename: 'Brokopf',
