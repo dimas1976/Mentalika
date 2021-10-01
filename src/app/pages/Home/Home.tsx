@@ -3,20 +3,19 @@ import Header from '../../components/Header/Header';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import Navigation from '../../components/navigation/Navigation';
 import styles from './Home.module.css';
-import type { Doctor } from '../../lib/types';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 import { matchSearch } from '../../utility/matchSearch';
 import { useHistory } from 'react-router';
 import { useLocation } from 'react-router-dom';
-import useLocalStorage from '../../hooks/useLocalStorage';
 import { useDebounce } from 'use-debounce';
+import useDoctors from '../../hooks/useDoctors';
 
 export default function Home(): JSX.Element {
   const query = new URLSearchParams(useLocation().search);
   const searchQuery = query.get('q');
   const [searchValue, setSearchValue] = useState(searchQuery || '');
   const history = useHistory();
-  const [doctors] = useLocalStorage<Doctor[]>('doctors', []);
+  const doctors = useDoctors('doctors');
   const [debouncedSearchValue] = useDebounce(searchValue, 500);
 
   useEffect(() => {

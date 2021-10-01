@@ -5,26 +5,24 @@ import AppointmentItem from '../../components/AppointmentItem/AppointmentItem';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/navigation/Navigation';
+import useAppointments from '../../hooks/useAppointments';
 import useDoctorById from '../../hooks/useDoctorById';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import type { Appointment, DoctorDate, UserData } from '../../lib/types';
+import type { DoctorDate, UserData } from '../../lib/types';
 import styles from './DoctorProfile.module.css';
 
 export default function DoctorProfile(): JSX.Element {
+  const [appointments, setAppointments] = useAppointments('appointments');
   const { id } = useParams<{ id: string }>();
   const [dates, setDates] = useState<DoctorDate[]>([]);
   const history = useHistory();
   const [doctor] = useDoctorById(id);
-  const [appointments, setAppointments] = useLocalStorage<Appointment[]>(
-    'appointments',
-    []
-  );
 
   const [userData, setUserData] = useLocalStorage<UserData[]>('userData', []);
 
   useEffect(() => {
     getAppointments();
-  }, []);
+  }, [appointments]);
 
   function getAppointments() {
     const filteredAppointmentsByDoctorId = appointments.find(
